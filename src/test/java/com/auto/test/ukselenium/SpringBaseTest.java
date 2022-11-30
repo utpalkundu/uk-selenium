@@ -23,6 +23,7 @@ public class SpringBaseTest extends AbstractTestNGSpringContextTests {
 
     @AfterTest
     public void teardown(){
+        System.out.println(">>>>>>>>>>>. In after test >>>>>>>>>>");
         driver.quit();
     }
 }

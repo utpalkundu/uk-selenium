@@ -48,8 +48,9 @@ public abstract class BasePage {
         WebElement button = driver.findElement(By.xpath("//*[text()='" + str + "']"));
         js.executeScript("arguments[0].click();", button);
     }
+
     public void click(String str){
-        driver.findElement(By.xpath("//*[text()='" + str + "']")).click();
+        driver.findElement(By.xpath("//*[normalize-space(text())='" + str + "']")).click();
     }
 
     public void checkErrorMessage(Map <Consumer<String>, String> screenActionsAndParams, List<String> expectedErrorMessages) {

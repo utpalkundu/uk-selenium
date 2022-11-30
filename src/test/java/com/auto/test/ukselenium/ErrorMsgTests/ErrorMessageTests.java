@@ -1,10 +1,11 @@
 package com.auto.test.ukselenium.ErrorMsgTests;
 
 import com.auto.test.ukselenium.SpringBaseTest;
-import com.auto.test.ukselenium.page.LoginPages.LoginPage;
+import com.auto.test.ukselenium.page.healthPages.LoginPage;
 import com.auto.test.ukselenium.taf.utils.ScreenshotUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Lazy;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -14,8 +15,9 @@ import java.util.function.Consumer;
 
 public class ErrorMessageTests extends SpringBaseTest {
 
+    @Lazy
     @Autowired
-    private LoginPage hmrcLoginPage;
+    private LoginPage hmrcHealthLoginPage;
 
     @Autowired
     private ScreenshotUtil screenshotUtil;
@@ -25,9 +27,9 @@ public class ErrorMessageTests extends SpringBaseTest {
 
     @BeforeTest
     public void goTo() throws IOException, InterruptedException {
-        this.hmrcLoginPage.goTo(this.url);
-        this.hmrcLoginPage.click("Accept analytics cookies");
-        this.hmrcLoginPage.isPageLoaded();
+        this.hmrcHealthLoginPage.goTo(this.url);
+        this.hmrcHealthLoginPage.click("Accept analytics cookies");
+        this.hmrcHealthLoginPage.isPageLoaded();
         this.screenshotUtil.takeScreenshot();
     }
 
@@ -56,10 +58,10 @@ public class ErrorMessageTests extends SpringBaseTest {
 
         fieldValues.forEach((m) -> {
             Map<Consumer<String>, String> map = new LinkedHashMap<>();
-            map.put(hmrcLoginPage::enterEmailAddress, m.get("EMAIL_ADDRESS"));
-            map.put(hmrcLoginPage::enterPassword, m.get("PASSWORD"));
-            map.put(hmrcLoginPage::click, "Sign In");
-            this.hmrcLoginPage.checkErrorMessage(map, Arrays.asList(m.get("ERROR_MESSAGE").split(";")));
+            map.put(hmrcHealthLoginPage::enterEmailAddress, m.get("EMAIL_ADDRESS"));
+            map.put(hmrcHealthLoginPage::enterPassword, m.get("PASSWORD"));
+            map.put(hmrcHealthLoginPage::click, "Sign In");
+            this.hmrcHealthLoginPage.checkErrorMessage(map, Arrays.asList(m.get("ERROR_MESSAGE").split(";")));
 
         });
 

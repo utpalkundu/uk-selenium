@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="heroku-tests" parallel="none">
+    <test name="test-1">
+        <classes>
+            <class name="com.auto.test.ukselenium.herokuTests.HerokuLoginTest">
+                <methods>
+                    <include name="loginTest1"/>
+                    <include name="loginTest2"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

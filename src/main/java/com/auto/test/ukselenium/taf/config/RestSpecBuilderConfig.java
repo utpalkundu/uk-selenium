@@ -1,4 +1,4 @@
-package com.auto.test.ukselenium.config;
+package com.auto.test.ukselenium.taf.config;
 
 import io.restassured.builder.RequestSpecBuilder;
 import org.springframework.context.annotation.Bean;
