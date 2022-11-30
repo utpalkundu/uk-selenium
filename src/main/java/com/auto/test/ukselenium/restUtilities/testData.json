@@ -1,0 +1,10 @@
+[
+  {
+    "productId": 101,
+    "name": "RAM",
+    "description": null,
+    "price": 100,
+    "components": [],
+    "productType": 5
+  }
+]
